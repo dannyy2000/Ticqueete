@@ -6,6 +6,10 @@
       "sudo apt-get install build-essential python3",
       "yarn install"
     ]
+  },
+  "env": {
+    "ENABLE_EXPERIMENTAL_COREPACK": "1"
   }
+
 }
 
