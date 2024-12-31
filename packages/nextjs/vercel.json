@@ -1,3 +1,11 @@
 {
-  "installCommand": "yarn install"
+  "installCommand": "yarn install",
+  "build": {
+    "commands": [
+      "sudo apt-get update",
+      "sudo apt-get install build-essential python3",
+      "yarn install"
+    ]
+  }
 }
+
