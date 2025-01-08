@@ -2,12 +2,15 @@
   "name": "@se-2/nextjs",
   "version": "0.1.0",
   "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
     "build": "next build",
     "check-types": "tsc --noEmit --incremental",
     "dev": "next dev",
     "format": "prettier --write . '!(node_modules|.next|contracts)/**/*'",
-    "postinstall": "node -e \"if (process.platform !== 'win32') { console.log('Skipping windows-build-tools installation on macOS/Linux'); } else { require('child_process').execSync('npm install --global windows-build-tools', { stdio: 'inherit' }); }\"",
+    "postinstall": "if [ \"$(uname -s)\" != \"Linux\" ] && [ \"$(uname -s)\" != \"Darwin\" ]; then npm install --global windows-build-tools || true; fi",
     "lint": "next lint",
     "serve": "next start",
     "start": "next dev",
