@@ -7,7 +7,7 @@
     "check-types": "tsc --noEmit --incremental",
     "dev": "next dev",
     "format": "prettier --write . '!(node_modules|.next|contracts)/**/*'",
-    "postinstall": "if [[ $(uname) == 'Darwin' ]]; then echo 'Skipping windows-build-tools installation on macOS'; else npm install --global windows-build-tools || true; fi",
+    "postinstall": "node -e \"if (process.platform !== 'win32') { console.log('Skipping windows-build-tools installation on macOS/Linux'); } else { require('child_process').execSync('npm install --global windows-build-tools', { stdio: 'inherit' }); }\"",
     "lint": "next lint",
     "serve": "next start",
     "start": "next dev",
